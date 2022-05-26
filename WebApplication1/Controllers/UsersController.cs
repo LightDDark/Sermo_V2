@@ -11,6 +11,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
 using WebApplication1.Data;
+using WebApplication1.Services;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using WebApplication1.Models.In;
 
 namespace WebApplication1.Controllers
 {
@@ -18,178 +23,87 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly WebApplication1Context _context;
+        private readonly UsersService _service;
+        private readonly IConfiguration _configuration;
 
-        public UsersController(WebApplication1Context context)
+        public UsersController(UsersService service, IConfiguration config)
         {
-            _context = context;
+            _service = service;
+            _configuration = config;
         }
 
-        // GET: api/Users
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUser()
-        {
-          if (_context.User == null)
-          {
-              return NotFound();
-          }
-            return await _context.User.ToListAsync();
-        }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(string id)
         {
-            if (_context.User == null)
-            {
-                return NotFound();
-            }
-            var user = await _context.User.FindAsync(id);
+            User? user = await _service.GetUser(id);
 
             if (user == null)
             {
                 return NotFound();
             }
 
-            user.Name = "";
-            user.Logs = null;
-            user.Password = "";
-            user.Contacts = null;
-
             return user;
-        }
-
-        // PUT: api/Users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(string id, [FromBody]User user)
-        {
-            if (id != user.Name)
-            {
-                return BadRequest();
-            }
-            List<Log> logList = new List<Log>();
-            user.Logs.ForEach(async log =>
-            {
-                var l = await _context.Log.FindAsync(log.stringId);
-                logList.Add(l);
-            });
-            user.Logs = logList;
-            _context.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
         }
 
         // POST: api/Users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<InUser>> PostUser(InUser user)
         {
-          if (_context.User == null)
-          {
-              return Problem("Entity set 'WebApplication1Context.User'  is null.");
-          }
-            _context.User.Add(user);
-            try
+            bool? res = await _service.AddUser(new User() { Id = user.Id, Name = user.Name, Password = user.Password, Server = HttpContext.Request.Host.Value });
+
+            if (res == null)
             {
-                await _context.SaveChangesAsync();
+                return Problem("Entity set 'WebApplication1Context.User'  is null.");
             }
-            catch (DbUpdateException)
+            else if (res == false)
             {
-                if (UserExists(user.Name))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return Conflict();
             }
 
             return CreatedAtAction("GetUser", new { id = user.Name }, user);
         }
 
         [HttpPost("Login")]
-        public async Task<IActionResult> LoginUser(User user)
+        public async Task<IActionResult> LoginUser(LogUser user)
         {
-            if (_context.User == null)
+            bool? res = await _service.ValidateUser(user);
+            if (res == null)
             {
                 return Problem("Entity set 'WebApplication1Context.User'  is null.");
+
             }
-            if (user == null || !UserExists(user.Name))
+            else if (res == false)
             {
                 return NotFound();
-            }
-            var realUser = await _context.User.FindAsync(user.Name);
-            if (realUser.Password != user.Password)
-            {
-                return NotFound();
+
             }
 
-            Signin(user);
-
-            return Ok();
+            return Ok(Signin(user));
         }
 
-        // DELETE: api/Users/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(string id)
+
+        private string Signin(LogUser account)
         {
-            if (_context.User == null)
+            var claims = new[]
             {
-                return NotFound();
-            }
-            var user = await _context.User.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            _context.User.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool UserExists(string id)
-        {
-            return (_context.User?.Any(e => e.Name == id)).GetValueOrDefault();
-        }
-
-        private async void Signin(User account)
-        {
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, account.Name)
+                new Claim(ClaimTypes.Name, account.Id),
+                new Claim(JwtRegisteredClaimNames.Sub, _configuration["JWTParams:Subject"]),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString())
             };
 
-            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-            var authProperties = new AuthenticationProperties
-            {
-                // Expires
-            };
-
-            await HttpContext.SignInAsync(
-                CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(claimsIdentity),
-                authProperties);
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWTParams:SecretKey"]));
+            var mac = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                _configuration["JWTParams:Issuer"],
+                _configuration["JWTParams:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddMinutes(20),
+                signingCredentials: mac);
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
 using WebApplication1.Data;
 using WebApplication1.Services;
+using WebApplication1.Models.Out;
+using WebApplication1.Models.In;
 
 namespace WebApplication1.Controllers
 {
@@ -28,9 +30,9 @@ namespace WebApplication1.Controllers
         // GET: api/Contacts
         // returns list of contacts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetContacts()
+        public async Task<ActionResult<IEnumerable<OutContact>>> GetContacts()
         {
-            List<User>? users = await _service.GetContacts(HttpContext.User.Claims.First().Value);
+            List<OutContact>? users = await _service.GetContacts(HttpContext.User.Claims.First().Value);
             if (users == null)
             {
                 return NotFound();
@@ -42,9 +44,9 @@ namespace WebApplication1.Controllers
         // GET: api/Contacts/5
         // get contact details 
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetContact(string id)
+        public async Task<ActionResult<OutContact>> GetContact(string id)
         {
-            User? contact = await _service.GetContact(id, HttpContext.User.Claims.First().Value);
+            OutContact? contact = await _service.GetContact(id, HttpContext.User.Claims.First().Value);
 
             if (contact == null)
             {
@@ -57,9 +59,9 @@ namespace WebApplication1.Controllers
         // GET: api/Contacts/5/messages
         // get messages
         [HttpGet("{id}/messages")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetMessages(string id)
+        public async Task<ActionResult<IEnumerable<OutMessage>>> GetMessages(string id)
         {
-            List<Message>? messages = await _service.GetMessages(id, HttpContext.User.Claims.First().Value);
+            List<OutMessage>? messages = await _service.GetMessages(id, HttpContext.User.Claims.First().Value);
 
             if (messages == null)
             {
@@ -72,7 +74,7 @@ namespace WebApplication1.Controllers
         // Pst: api/Contacts/5/messages
         // post message
         [HttpPost("{id}/messages")]
-        public async Task<ActionResult<Message>> AddMessage(string id, [FromBody] Message msg)
+        public async Task<ActionResult<OutMessage>> AddMessage(string id, [FromBody] InMessage msg)
         {
             bool messages = await _service.AddMessage(id, msg.Content, HttpContext.User.Claims.First().Value);
 
@@ -97,9 +99,9 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet("{id}/messages/{id2}")]
-        public async Task<ActionResult<Message>> GetMessage(string id, int id2)
+        public async Task<ActionResult<OutMessage>> GetMessage(string id, int id2)
         {
-            Message? res = await _service.GetMessage(id2, id);
+            OutMessage? res = await _service.GetMessage(id2, id);
             if (res == null)
             {
                 return NotFound();
@@ -109,7 +111,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPut("{id}/messages/{id2}")]
-        public async Task<IActionResult> PutMessage(string id, int id2, Message msg)
+        public async Task<IActionResult> PutMessage(string id, int id2, InMessage msg)
         {
             if (msg == null)
             {
@@ -128,7 +130,7 @@ namespace WebApplication1.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         // update details of contact with the given id
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutContact(string id, User contact)
+        public async Task<IActionResult> PutContact(string id, InContact contact)
         {
             contact.Id = id;
             bool res = await _service.UpdateContact(contact, HttpContext.User.Claims.First().Value);
@@ -144,18 +146,8 @@ namespace WebApplication1.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         // add new contact to current user
         [HttpPost]
-        public async Task<ActionResult<User>> PostContact(User contact)
+        public async Task<ActionResult<Contact>> PostContact(Contact contact)
         {
-            if (contact.Server == null && contact.Name == null)
-            {
-                return ValidationProblem("Server field is requierd.\n Name field is requierd.");
-            } else if (contact.Server == null)
-            {
-                return ValidationProblem("Server field is requierd.");
-            } else if (contact.Name == null)
-            {
-                return ValidationProblem("Name field is requierd.");
-            }
             if (contact.Server == HttpContext.Request.Host.Value)
             {
                 User? c = await _service.GetUser(contact.Id);

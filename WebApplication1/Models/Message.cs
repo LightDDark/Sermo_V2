@@ -6,14 +6,18 @@ namespace WebApplication1.Models
     {
         [Key]
         public int Id { get; set; }
-        public User? Author { get; set; }
-        public Log? Log { get; set; }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        public string Author { get; set; }
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        public Log Log { get; set; }
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public string Content { get; set; }
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
         [DataType(DataType.DateTime)]
-        public DateTime? Created { get; set; }
-
-        public bool? Sent { get; set; }
+        public DateTime Created { get; set; }
 
     }
 }

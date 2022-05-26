@@ -10,7 +10,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
+using WebApplication1.Models.Out;
 using WebApplication1.Data;
+using WebApplication1.Models.In;
 
 namespace WebApplication1.Services
 {
@@ -24,14 +26,14 @@ namespace WebApplication1.Services
             _context = context;
         }
 
-        public async Task<bool> UpdateContact(User contact, string user)
+        public async Task<bool> UpdateContact(InContact contact, string user)
         {
             User? u = await UserWithContacts(user);
             if (u == null || u.Contacts == null)
             {
                 return false;
             }
-            User? c = u.Contacts.Find(c => c.Id == contact.Id);
+            Contact? c = u.Contacts.Find(c => c.Id == contact.Id);
             if (c == null)
             {
                 return false;
@@ -70,15 +72,15 @@ namespace WebApplication1.Services
             {
                 return null;
             }
-            User retuser = new User() { Id = user.Id, Name = user.Name, Server = user.Server, Last = user.Last, Lastdate = user.Lastdate };
+            User retuser = new User() { Id = user.Id, Name = user.Name, Server = user.Server};
 
             return retuser;
         }
 
-        public async Task<List<User>?> GetContacts(string currentName)
+        public async Task<List<OutContact>?> GetContacts(string currentName)
         {
             
-            User? user = await UserWithContacts(currentName);
+            User? user = await UserWithAll(currentName);
 
             if (user == null)
             {
@@ -90,19 +92,31 @@ namespace WebApplication1.Services
                 return null;
             }
 
-            List<User> contacts = new List<User>();
+            List<OutContact> contacts = new List<OutContact>();
             user.Contacts.ForEach(x =>
             {
-                contacts.Add(new User() { Id = x.Id, Name = x.Name,  Server = x.Server, Last = x.Last, Lastdate = x.Lastdate});
+                string? last = null;
+                string? lastDate = null;
+                Log? l = user.Logs.Find(l => l.stringId == Log.LogId(user.Id, x.Id));
+                if (l != null)
+                {
+                    Message? m = l.Messages.FindLast(m => m.Author == x.Id);
+                    if (m != null)
+                    {
+                        last = m.Content;
+                        lastDate = m.Created.ToString("o");
+                    }
+                }
+                contacts.Add(new OutContact() { Id = x.Id, Name = x.Name,  Server = x.Server, Last = last, Lastdate = lastDate});
             });
 
             return contacts;
         }
 
-        public async Task<User?> GetContact(string id, string currentName)
+        public async Task<OutContact?> GetContact(string id, string currentName)
         {
 
-            User? user = await UserWithContacts(currentName);
+            User? user = await UserWithAll(currentName);
 
             if (!(await ContactExists(id, currentName)))
             {
@@ -110,12 +124,24 @@ namespace WebApplication1.Services
             }
 
 
-            User? x = user.Contacts.Find(x => x.Id == id);
+            Contact? x = user.Contacts.Find(x => x.Id == id);
+            string? last = null;
+            string? lastDate = null;
+            Log? l = user.Logs.Find(l => l.stringId == Log.LogId(user.Id, x.Id));
+            if (l != null)
+            {
+                Message? m = l.Messages.FindLast(m => m.Author == x.Id);
+                if (m != null)
+                {
+                    last = m.Content;
+                    lastDate = m.Created.ToString("o");
+                }
+            }
 
-            return new User() { Id = x.Id, Name = x.Name, Server = x.Server, Last = x.Last, Lastdate = x.Lastdate };
+            return new OutContact() { Id = x.Id, Name = x.Name, Server = x.Server, Last = last, Lastdate = lastDate };
         }
 
-        public async Task<List<Message>?> GetMessages(string id, string currentName)
+        public async Task<List<OutMessage>?> GetMessages(string id, string currentName)
         {
 
             Log? log = await GetLog(id, currentName);
@@ -125,10 +151,10 @@ namespace WebApplication1.Services
             {
                 return null;
             }
-            List<Message> msgs = new List<Message>();
+            List<OutMessage> msgs = new List<OutMessage>();
             log.Messages.ForEach(x =>
             {
-                msgs.Add(new Message() { Content = x.Content, Created = x.Created, Id = x.Id, Sent = x.Author.Id == user.Id });
+                msgs.Add(new OutMessage() { Content = x.Content, Created = x.Created, Id = x.Id, Sent = x.Author == user.Id });
             });
             return msgs;
         }
@@ -157,12 +183,10 @@ namespace WebApplication1.Services
                 nextId = _context.Message.Max(x => x.Id) + 1;
             }
             DateTime date = DateTime.Now;
-            log.Messages.Add(new Message() { Author = user, Content = msg,
+            log.Messages.Add(new Message() { Author = user.Id, Content = msg,
                             Log = log, Created = date, Id = nextId});
-            user.Lastdate = date.ToString("o");
-            user.Last = msg;
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(log).State = EntityState.Modified;
 
             try
             {
@@ -215,18 +239,15 @@ namespace WebApplication1.Services
             return true;
         }
 
-        public async Task<Message?> GetMessage(int id, string userId)
+        public async Task<OutMessage?> GetMessage(int id, string userId)
         {
             if (_context.Message == null)
             {
                 return null;
             }
             Message? msg = await _context.Message.Include(m => m.Author).FirstOrDefaultAsync(m => m.Id == id);
-            if (msg == null || msg.Author.Id != userId)
-            {
-                return null;
-            }
-            return new Message() { Id = msg.Id, Content = msg.Content, Created = msg.Created, Sent = false };
+       
+            return new OutMessage() { Id = msg.Id, Content = msg.Content, Created = msg.Created, Sent = msg.Author != userId };
         }
 
         public async Task<bool?> PutMessage(int id, string userId, string content)
@@ -236,19 +257,9 @@ namespace WebApplication1.Services
                 return null;
             }
             Message? msg = await _context.Message.Include(m => m.Author).Include(m => m.Log).FirstOrDefaultAsync(m => m.Id == id);
-            if (msg == null || msg.Author.Id != userId)
-            {
-                return false;
-            }
+       
             msg.Content = content;
-            Log l = msg.Log;
-            User user = msg.Author;
-            if (l.Messages.Last() == msg)
-            {
-                user.Last = msg.Content;
-            }
-
-            _context.Entry(user).State = EntityState.Modified;
+            
             _context.Entry(msg).State = EntityState.Modified;
 
             try
@@ -271,13 +282,13 @@ namespace WebApplication1.Services
             return await AddMessage(to, content, from);
         }
 
-        public async Task<bool?> Invite(string from, string to, string server, bool here)
+        public async Task<bool?> Invite(string from, string to, string server)
         {
             if (_context.User == null)
             {
                 return null;
             }
-            return await AddContact(new User() { Id = from, Name = from, Server = server }, to);
+            return await AddContact(new Contact() { Id = from, Name = from, Server = server }, to);
         }
 
         public async Task<bool?> DeleteMessage(int id, string userId)
@@ -287,23 +298,13 @@ namespace WebApplication1.Services
                 return null;
             }
             Message? msg = await _context.Message.Include(m => m.Author).Include(m => m.Log).FirstOrDefaultAsync(m => m.Id == id);
-            if (msg == null || msg.Author.Id != userId)
-            {
-                return false;
-            }
             Log l = msg.Log;
-            User user = msg.Author;
             if (l == null || !l.Messages.Remove(msg))
             {
                 return false;
             }
-            Message m = l.Messages.Last();
-            user.Lastdate = ((DateTime)m.Created).ToString("o");
-            user.Last = m.Content;
 
-            _context.Entry(user).State = EntityState.Modified;
             _context.Entry(l).State = EntityState.Modified;
-
 
             try
             {
@@ -316,27 +317,22 @@ namespace WebApplication1.Services
             return true;
         }
         // add contact for current
-        public async Task<bool?> AddContact(User contact, string currentName)
+        public async Task<bool?> AddContact(Contact contact, string currentName)
         {
             if (_context.User == null)
             {
                 return null;
             }
             User? user = await UserWithContacts(currentName);
-            User?  toAdd = await _context.User.FindAsync(contact.Id);
             if (user == null || contact == null)
             {
                 return false;
             }
             if (user.Contacts == null)
             {
-                user.Contacts = new List<User>();
+                user.Contacts = new List<Contact>();
             }
-            if (toAdd == null)
-            {
-                toAdd = contact;
-            }
-            user.Contacts.Add(toAdd);
+            user.Contacts.Add(contact);
             _context.Entry(user).State = EntityState.Modified;
 
             try
@@ -378,7 +374,7 @@ namespace WebApplication1.Services
             return true;
         }
 
-        public async Task<bool?> ValidateUser(User user)
+        public async Task<bool?> ValidateUser(LogUser user)
         {
             if (_context.User == null)
             {
@@ -485,7 +481,6 @@ namespace WebApplication1.Services
                 {
                     stringId = logId,
                     Messages = new List<Message>(),
-                    Users = new HashSet<User> { user, contact }
                 };
                 user.Logs.Add(log);
             }

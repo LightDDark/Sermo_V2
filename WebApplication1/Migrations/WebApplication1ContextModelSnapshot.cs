@@ -19,19 +19,27 @@ namespace WebApplication1.Migrations
                 .HasAnnotation("ProductVersion", "6.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("LogUser", b =>
+            modelBuilder.Entity("WebApplication1.Models.Contact", b =>
                 {
-                    b.Property<string>("LogsstringId")
+                    b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("UsersId")
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Server")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("UserId")
                         .HasColumnType("varchar(255)");
 
-                    b.HasKey("LogsstringId", "UsersId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("LogUser");
+                    b.ToTable("Contact");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Log", b =>
@@ -39,7 +47,12 @@ namespace WebApplication1.Migrations
                     b.Property<string>("stringId")
                         .HasColumnType("varchar(255)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(255)");
+
                     b.HasKey("stringId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Log");
                 });
@@ -50,25 +63,21 @@ namespace WebApplication1.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("AuthorId")
-                        .HasColumnType("varchar(255)");
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime?>("Created")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("LogstringId")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<bool?>("Sent")
-                        .HasColumnType("tinyint(1)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
 
                     b.HasIndex("LogstringId");
 
@@ -80,66 +89,44 @@ namespace WebApplication1.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("Last")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Lastdate")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Server")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("LogUser", b =>
-                {
-                    b.HasOne("WebApplication1.Models.Log", null)
-                        .WithMany()
-                        .HasForeignKey("LogsstringId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebApplication1.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("WebApplication1.Models.Message", b =>
-                {
-                    b.HasOne("WebApplication1.Models.User", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId");
-
-                    b.HasOne("WebApplication1.Models.Log", "Log")
-                        .WithMany("Messages")
-                        .HasForeignKey("LogstringId");
-
-                    b.Navigation("Author");
-
-                    b.Navigation("Log");
-                });
-
-            modelBuilder.Entity("WebApplication1.Models.User", b =>
+            modelBuilder.Entity("WebApplication1.Models.Contact", b =>
                 {
                     b.HasOne("WebApplication1.Models.User", null)
                         .WithMany("Contacts")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Log", b =>
+                {
+                    b.HasOne("WebApplication1.Models.User", null)
+                        .WithMany("Logs")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Message", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Log", "Log")
+                        .WithMany("Messages")
+                        .HasForeignKey("LogstringId");
+
+                    b.Navigation("Log");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Log", b =>
@@ -150,6 +137,8 @@ namespace WebApplication1.Migrations
             modelBuilder.Entity("WebApplication1.Models.User", b =>
                 {
                     b.Navigation("Contacts");
+
+                    b.Navigation("Logs");
                 });
 #pragma warning restore 612, 618
         }

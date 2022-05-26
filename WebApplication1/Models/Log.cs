@@ -6,7 +6,6 @@ namespace WebApplication1.Models
     {
         [Key]
         public string stringId { get; set; } = "";
-        public HashSet<User> Users { get; set; } = new HashSet<User>();
 
         public List<Message> Messages { get; set; } = new List<Message>();
 
@@ -15,9 +14,9 @@ namespace WebApplication1.Models
             int res = string.Compare(name1, name2);
             if (res < 0)
             {
-                return name2 + name1;
+                return name2 + "-" + name1;
             }
-            return name1 + name2;
+            return name1 + "-" + name2;
         }
     }
 }

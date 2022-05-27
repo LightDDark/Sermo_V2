@@ -10,3 +10,15 @@
 /Users/maayan/Projects/Sermo/Entries/obj/Debug/net6.0/refint/Entries.dll
 /Users/maayan/Projects/Sermo/Entries/obj/Debug/net6.0/Entries.pdb
 /Users/maayan/Projects/Sermo/Entries/obj/Debug/net6.0/ref/Entries.dll
+/Users/maayan/Projects/Sermo_V2-1/Entries/bin/Debug/net6.0/Entries.deps.json
+/Users/maayan/Projects/Sermo_V2-1/Entries/bin/Debug/net6.0/Entries.dll
+/Users/maayan/Projects/Sermo_V2-1/Entries/bin/Debug/net6.0/Entries.pdb
+/Users/maayan/Projects/Sermo_V2-1/Entries/obj/Debug/net6.0/Entries.csproj.AssemblyReference.cache
+/Users/maayan/Projects/Sermo_V2-1/Entries/obj/Debug/net6.0/Entries.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maayan/Projects/Sermo_V2-1/Entries/obj/Debug/net6.0/Entries.AssemblyInfoInputs.cache
+/Users/maayan/Projects/Sermo_V2-1/Entries/obj/Debug/net6.0/Entries.AssemblyInfo.cs
+/Users/maayan/Projects/Sermo_V2-1/Entries/obj/Debug/net6.0/Entries.csproj.CoreCompileInputs.cache
+/Users/maayan/Projects/Sermo_V2-1/Entries/obj/Debug/net6.0/Entries.dll
+/Users/maayan/Projects/Sermo_V2-1/Entries/obj/Debug/net6.0/refint/Entries.dll
+/Users/maayan/Projects/Sermo_V2-1/Entries/obj/Debug/net6.0/Entries.pdb
+/Users/maayan/Projects/Sermo_V2-1/Entries/obj/Debug/net6.0/ref/Entries.dll

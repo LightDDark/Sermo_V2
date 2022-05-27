@@ -1,0 +1,95 @@
+﻿<Properties StartupConfiguration="{D5C5CDA8-E3EC-4C75-8A4B-BBCAEA8EA58B}|WebApplication1">
+  <MonoDevelop.Ide.ItemProperties.OrAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/maayan/Projects/Sermo_V2-1/OrAPI/Controllers/ContactsController.cs" relfile="OrAPI/Controllers/ContactsController.cs" line="37" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="SermoWeb/Controllers/RatingsController.cs">
+    <Files>
+      <File FileName="OrAPI/Program.cs" Line="14" Column="1" />
+      <File FileName="OrAPI/Migrations/20220526165515_init.Designer.cs" Line="13" Column="12" />
+      <File FileName="OrAPI/Migrations/20220526165515_init.cs" Line="120" Column="33" />
+      <File FileName="OrAPI/Controllers/OutController.cs" Line="4" Column="23" />
+      <File FileName="OrAPI/Controllers/UsersController.cs" Line="76" Column="1" />
+      <File FileName="OrAPI/Models/In/Transfer.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Models/In/LogUser.cs" Line="6" Column="23" />
+      <File FileName="OrAPI/Models/In/InUser.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Models/In/Invite.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Models/In/InMessage.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Models/In/InContact.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Models/Out/OutContact.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Models/Out/OutMessage.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Models/Message.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Models/Log.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Models/Contact.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Models/User.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Services/UsersService.cs" Line="442" Column="29" />
+      <File FileName="SermoMain/src/dataBase/Out.js" Line="16" Column="26" />
+      <File FileName="SermoMain/src/dataBase/User.js" Line="19" Column="39" />
+      <File FileName="SermoMain/src/dataBase/UserData.js" Line="3" Column="1" />
+      <File FileName="SermoMain/src/chatPage/MessageForm.js" Line="1" Column="1" />
+      <File FileName="SermoMain/src/chatPage/SubChat.js" Line="1" Column="1" />
+      <File FileName="SermoMain/src/chatPage/PrintLog.js" Line="1" Column="1" />
+      <File FileName="SermoMain/src/chatPage/MainChat.js" Line="1" Column="1" />
+      <File FileName="SermoMain/src/startPage/Login.js" Line="1" Column="1" />
+      <File FileName="OrAPI/appsettings.json" Line="18" Column="2" />
+      <File FileName="OrAPI/Data/WebApplication1Context.cs" Line="15" Column="1" />
+      <File FileName="OrAPI/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="OrAPI/Properties/launchSettings.json" Line="17" Column="46" />
+      <File FileName="OrAPI/Properties/serviceDependencies.json" Line="1" Column="1" />
+      <File FileName="OrAPI/Properties/serviceDependencies.local.json" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/20220516195025_3.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/20220519121603_asd.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/20220524080909_changedmodels.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/20220524164240_changedmodels3.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/20220524233743_droppedContacts.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/20220525121400_passchange.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/WebApplication1ContextModelSnapshot.cs" Line="35" Column="41" />
+      <File FileName="../../../../usr/local/share/dotnet/sdk/6.0.203/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" Line="267" Column="5" />
+      <File FileName="SermoMain/src/chatPage/UploadImage.js" Line="1" Column="1" />
+      <File FileName="SermoMain/src/chatPage/Chat.js" Line="1" Column="1" />
+      <File FileName="SermoMain/src/chatPage/ContactButton.js" Line="1" Column="1" />
+      <File FileName="SermoMain/src/chatPage/ContactCard.js" Line="1" Column="1" />
+      <File FileName="SermoMain/src/chatPage/SideBar.js" Line="1" Column="1" />
+      <File FileName="SermoMain/src/chatPage/SearchBar.js" Line="1" Column="1" />
+      <File FileName="OrAPI/Controllers/ContactsController.cs" Line="37" Column="1" />
+      <File FileName="OrAPI/Migrations/20220527093644_v1.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/20220527122416_v2.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/20220527125252_v3.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/20220523191317_try.cs" Line="1" Column="1" />
+      <File FileName="OrAPI/Migrations/20220524084810_changedmodels2.cs" Line="1" Column="1" />
+      <File FileName="SermoWeb/Properties/launchSettings.json" Line="1" Column="1" />
+      <File FileName="SermoWeb/Controllers/RatingsController.cs" Line="8" Column="25" />
+      <File FileName="OrAPI/Migrations/20220527131359_try.cs" Line="11" Column="1" />
+      <File FileName="OrAPI/Migrations/20220527131359_try.Designer.cs" Line="37" Column="41" />
+      <File FileName="Entries/Models/Log.cs" Line="11" Column="53" />
+      <File FileName="Entries/Models/Message.cs" Line="1" Column="1" />
+      <File FileName="Entries/Models/Ratings.cs" Line="1" Column="1" />
+      <File FileName="Entries/Models/ErrorViewModel.cs" Line="1" Column="1" />
+      <File FileName="Entries/Models/User.cs" Line="1" Column="1" />
+      <File FileName="Entries/Class1.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Sermo_V2-1" expanded="True">
+            <Node name="SermoWeb" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="RatingsController.cs" selected="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.SermoWeb PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+</Properties>

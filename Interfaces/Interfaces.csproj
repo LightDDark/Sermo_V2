@@ -75,7 +75,6 @@
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Repository\Repository.csproj" />
     <ProjectReference Include="..\Entries\Entries.csproj" />
   </ItemGroup>
 </Project>

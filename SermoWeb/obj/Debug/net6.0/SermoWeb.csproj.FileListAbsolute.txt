@@ -285,6 +285,7 @@
 /Users/maayan/Projects/Sermo_V2-1/SermoWeb/bin/Debug/net6.0/Humanizer.dll
 /Users/maayan/Projects/Sermo_V2-1/SermoWeb/bin/Debug/net6.0/MessagePack.dll
 /Users/maayan/Projects/Sermo_V2-1/SermoWeb/bin/Debug/net6.0/MessagePack.Annotations.dll
+/Users/maayan/Projects/Sermo_V2-1/SermoWeb/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/maayan/Projects/Sermo_V2-1/SermoWeb/bin/Debug/net6.0/Microsoft.AspNetCore.Razor.Language.dll
 /Users/maayan/Projects/Sermo_V2-1/SermoWeb/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/maayan/Projects/Sermo_V2-1/SermoWeb/bin/Debug/net6.0/Microsoft.Build.Locator.dll

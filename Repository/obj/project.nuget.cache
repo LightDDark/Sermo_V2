@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lBXonXklCDn1flK/aoWwIi7UKcDDiPT4wV1oobVb8RYTIdijBWpHz5g/At3z3QjGPXoBk/sBfzBgkgcNiSpfNQ==",
+  "dgSpecHash": "bspm3mDw/mNHeJM+jKOLpN8GkVD15uOKUieluHPOHSFZJYxE4Y7Bv2NZ7j6KFc2Z9sJag2jsbPwYAWLluSRQKw==",
   "success": true,
-  "projectFilePath": "/Users/maayan/Projects/Sermo/Repository/Repository.csproj",
+  "projectFilePath": "/Users/maayan/Projects/Sermo_V2-1/Repository/Repository.csproj",
   "expectedPackageFiles": [
     "/Users/maayan/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/maayan/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",

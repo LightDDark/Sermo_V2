@@ -1,0 +1,6 @@
+/Users/maayan/Projects/Sermo_V2-1/SermoMain/obj/Debug/net6.0/SermoMain.csproj.AssemblyReference.cache
+/Users/maayan/Projects/Sermo_V2-1/SermoMain/obj/Debug/net6.0/SermoMain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maayan/Projects/Sermo_V2-1/SermoMain/obj/Debug/net6.0/SermoMain.AssemblyInfoInputs.cache
+/Users/maayan/Projects/Sermo_V2-1/SermoMain/obj/Debug/net6.0/SermoMain.AssemblyInfo.cs
+/Users/maayan/Projects/Sermo_V2-1/SermoMain/obj/Debug/net6.0/SermoMain.csproj.CoreCompileInputs.cache
+/Users/maayan/Projects/Sermo_V2-1/SermoMain/obj/Debug/net6.0/SermoMain.MvcApplicationPartsAssemblyInfo.cache

@@ -1,0 +1,8 @@
+C:\Users\myavr\Desktop\New folder (2)\Sermo_V2\SermoAPP\obj\Debug\net6.0\SermoAPP.csproj.AssemblyReference.cache
+C:\Users\myavr\Desktop\New folder (2)\Sermo_V2\SermoAPP\obj\Debug\net6.0\SermoAPP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\myavr\Desktop\New folder (2)\Sermo_V2\SermoAPP\obj\Debug\net6.0\SermoAPP.AssemblyInfoInputs.cache
+C:\Users\myavr\Desktop\New folder (2)\Sermo_V2\SermoAPP\obj\Debug\net6.0\SermoAPP.AssemblyInfo.cs
+C:\Users\myavr\Desktop\New folder (2)\Sermo_V2\SermoAPP\obj\Debug\net6.0\SermoAPP.csproj.CoreCompileInputs.cache
+C:\Users\myavr\Desktop\New folder (2)\Sermo_V2\SermoAPP\obj\Debug\net6.0\SermoAPP.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\myavr\Desktop\New folder (2)\Sermo_V2\SermoAPP\obj\Debug\net6.0\SermoAPP.RazorAssemblyInfo.cache
+C:\Users\myavr\Desktop\New folder (2)\Sermo_V2\SermoAPP\obj\Debug\net6.0\SermoAPP.RazorAssemblyInfo.cs

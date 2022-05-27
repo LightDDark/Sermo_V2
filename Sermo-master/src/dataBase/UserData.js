@@ -22,7 +22,7 @@ class UserData {
   }
 
   async login(userName, password) {
-    let response = await Out.post("https://localhost:7043/api/Users/Login", {
+    let response = await Out.login("https://localhost:7043/api/Users/Login", {
       id: userName,
       password: password,
     });

@@ -177,16 +177,25 @@ namespace WebApplication1.Services
             {
                 log.Messages = new List<Message>();
             }
-            int nextId = 0;
+            /*int nextId = 0;
             if (_context.Message != null && _context.Message.Any())
             {
                 nextId = _context.Message.Max(x => x.Id) + 1;
-            }
+            }*/
             DateTime date = DateTime.Now;
-            log.Messages.Add(new Message() { Author = user.Id, Content = msg,
-                            Log = log, Created = date, Id = nextId});
-
+            Message m = new Message()
+            {
+                Content = msg,
+                Created = date,
+            };
+            //m.Id = nextId;
+            m.Log = log;
+            m.Author = user.Id;
+            log.Messages.Add(m);
+            //await _context.Message.AddAsync(m);
+            //_context.Entry(m).State = EntityState.Modified;
             _context.Entry(log).State = EntityState.Modified;
+
 
             try
             {
@@ -332,6 +341,7 @@ namespace WebApplication1.Services
             {
                 user.Contacts = new List<Contact>();
             }
+            contact.Users.Add(user);
             user.Contacts.Add(contact);
             _context.Entry(user).State = EntityState.Modified;
 
@@ -468,23 +478,51 @@ namespace WebApplication1.Services
                 return null;
             }
             string logId = Log.LogId(user.Id, id);
-            User? contact = await _context.User.FindAsync(id);
+            Contact? contact;
+            if (_context.Contact != null )
+            {
+                contact = await _context.Contact.FindAsync(id);
+                if (contact == null)
+                {
+                    return null;
+                }
+            } else
+            {
+                return null;
+            }
+            Log? log;
             if (user.Logs == null)
             {
                 user.Logs = new List<Log>();
             }
-            Log? log = await _context.Log.Include(x => x.Messages).FirstOrDefaultAsync(l => l.stringId == logId);
-
+            log = user.Logs.Find(x => x.stringId == logId);
+            if (log != null)
+            {
+                log = await _context.Log.Include(x => x.Messages).FirstOrDefaultAsync(l => l.stringId == log.stringId);
+            }
             if (log == null || log.stringId == "")
             {
                 log = new Log()
                 {
                     stringId = logId,
                     Messages = new List<Message>(),
+                    User = user,
+                    Contact = contact
                 };
                 user.Logs.Add(log);
-            }
 
+                _context.Entry(user).State = EntityState.Modified;
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    throw;
+                }
+            }
+            
             return log;
         }
     }

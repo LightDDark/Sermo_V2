@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
 namespace WebApplication1.Models
 {
     public class Log
@@ -8,6 +7,9 @@ namespace WebApplication1.Models
         public string stringId { get; set; } = "";
 
         public List<Message> Messages { get; set; } = new List<Message>();
+
+        public User User { get; set; }
+        public Contact Contact { get; set; }
 
         public static string LogId(string name1, string name2)
         {

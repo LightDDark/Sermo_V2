@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import ContactButton from "./ContactButton";
 import { Row, Col } from "react-bootstrap";
@@ -8,6 +8,10 @@ function SideBar(props) {
   const currentUser = props.self;
   const [activeContact, setActiveContact] = props.active;
   const [contactList, setContactList] = useState(contacts);
+
+  useEffect(() => {
+    setContactList(contacts);
+  }, [contacts]);
 
   const doSearch = function (query) {
     setContactList(

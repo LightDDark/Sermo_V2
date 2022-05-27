@@ -146,18 +146,19 @@ namespace WebApplication1.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         // add new contact to current user
         [HttpPost]
-        public async Task<ActionResult<Contact>> PostContact(Contact contact)
+        public async Task<ActionResult<InContact>> PostContact(InContact contact)
         {
-            if (contact.Server == HttpContext.Request.Host.Value)
+            if (contact.Id == null)
             {
-                User? c = await _service.GetUser(contact.Id);
-                if (c == null)
-                {
-                    return BadRequest();
-                }
-            }
+                return ValidationProblem("Id field is requiered.");
+            } 
 
-            bool? res = await _service.AddContact(contact, HttpContext.User.Claims.First().Value);
+            bool? res = await _service.AddContact(new Contact()
+            {
+                Id = contact.Id,
+                Server = contact.Server,
+                Name = contact.Name,
+            }, HttpContext.User.Claims.First().Value);
             if (res == null)
             {
                 return Problem("Entity set 'WebApplication1Context.User'  is null.");

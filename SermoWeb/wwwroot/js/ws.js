@@ -1,4 +1,20 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿import { logs } from "Services";
 
-// Write your JavaScript code.
+$(function () {
+    const newConnection = new SignalR.HubConnectionBuilder()
+        .withUrl("/MyHub")
+        .withAutomaticReconnect()
+        .build();
+
+    newConnection.start();
+
+    $('SubChat').onClick(() => {
+        console.log('sending' + $('SubChat').val());
+        newConnection.invoke("Changed", $('SubChat').val());
+    });
+
+    newConnection.on("ReceiveMessage", (message) => {
+        const l = logs.getLog(message.from, message.to);
+        l.newMessage("text", message.content, message.from);
+    }
+    });

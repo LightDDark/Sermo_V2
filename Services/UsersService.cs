@@ -466,7 +466,7 @@ namespace Services
             {
                 return null;
             }
-            return await _context.User.Include(x => x.Logs).Include(x => x.Contacts).FirstOrDefaultAsync(u => u.Id == user.Id);
+            return await _context.User.Include(x => x.Logs).Include(x => x.Contacts).FirstAsync(u => u.Id == user.Id);
         }
 
         private async ValueTask<Log?> GetLog(string id, string currentName)

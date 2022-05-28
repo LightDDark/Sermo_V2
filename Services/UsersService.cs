@@ -248,24 +248,41 @@ namespace Services
             return true;
         }
 
-        public async Task<OutMessage?> GetMessage(int id, string userId)
+        public async Task<OutMessage?> GetMessage(int msgId, string contactId, string currentName)
         {
             if (_context.Message == null)
             {
                 return null;
             }
-            Message? msg = await _context.Message.Include(m => m.Author).FirstOrDefaultAsync(m => m.Id == id);
-       
-            return new OutMessage() { Id = msg.Id, Content = msg.Content, Created = msg.Created, Sent = msg.Author != userId };
+            Log? log = await GetLog(contactId, currentName);
+            if (log == null)
+            {
+                return null;
+            }
+            Message? msg = log.Messages.Find(m => m.Id == msgId);
+            if (msg == null)
+            {
+                return null;
+            }
+            return new OutMessage() { Id = msg.Id, Content = msg.Content, Created = msg.Created, Sent = msg.Author == currentName };
         }
 
-        public async Task<bool?> PutMessage(int id, string userId, string content)
+        public async Task<bool?> PutMessage(int msgId, string contactId, string content, string currentName)
         {
             if (_context.Message == null)
             {
                 return null;
             }
-            Message? msg = await _context.Message.Include(m => m.Author).Include(m => m.Log).FirstOrDefaultAsync(m => m.Id == id);
+            Log? log = await GetLog(contactId, currentName);
+            if (log == null)
+            {
+                return null;
+            }
+            Message? msg = log.Messages.Find(m => m.Id == msgId);
+            if (msg == null)
+            {
+                return null;
+            }
        
             msg.Content = content;
             
@@ -300,20 +317,24 @@ namespace Services
             return await AddContact(new Contact() { Id = from, Name = from, Server = server }, to);
         }
 
-        public async Task<bool?> DeleteMessage(int id, string userId)
+        public async Task<bool?> DeleteMessage(int msgId, string contactId, string currentName)
         {
             if (_context.Message == null )
             {
                 return null;
             }
-            Message? msg = await _context.Message.Include(m => m.Author).Include(m => m.Log).FirstOrDefaultAsync(m => m.Id == id);
-            Log l = msg.Log;
-            if (l == null || !l.Messages.Remove(msg))
+            Log? log = await GetLog(contactId, currentName);
+            if (log == null)
+            {
+                return null;
+            }
+            
+            if (log == null || log.Messages.RemoveAll(m => m.Id == msgId) == 0)
             {
                 return false;
             }
 
-            _context.Entry(l).State = EntityState.Modified;
+            _context.Entry(log).State = EntityState.Modified;
 
             try
             {

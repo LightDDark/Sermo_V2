@@ -89,7 +89,7 @@ namespace SermoAPI.Controllers
         [HttpDelete("{id}/messages/{id2}")]
         public async Task<IActionResult> DeleteMessage(string id, int id2)
         {
-            bool? res = await _service.DeleteMessage(id2, id);
+            bool? res = await _service.DeleteMessage(id2, id, HttpContext.User.Claims.First().Value);
             if (res == null || res == false)
             {
                 return NotFound();
@@ -101,7 +101,7 @@ namespace SermoAPI.Controllers
         [HttpGet("{id}/messages/{id2}")]
         public async Task<ActionResult<OutMessage>> GetMessage(string id, int id2)
         {
-            OutMessage? res = await _service.GetMessage(id2, id);
+            OutMessage? res = await _service.GetMessage(id2, id, HttpContext.User.Claims.First().Value);
             if (res == null)
             {
                 return NotFound();
@@ -117,7 +117,7 @@ namespace SermoAPI.Controllers
             {
                 return BadRequest();
             }
-            bool? res = await _service.PutMessage(id2, id, msg.Content);
+            bool? res = await _service.PutMessage(id2, id, msg.Content, HttpContext.User.Claims.First().Value);
             if (res == null || res == false)
             {
                 return NotFound();

@@ -1,4 +1,6 @@
 ﻿import { logs } from "Services";
+import { HubConnection, HubConnectionBuilder } from "@microsoft/signalr";
+
 
 $(function () {
     const newConnection = new SignalR.HubConnectionBuilder()

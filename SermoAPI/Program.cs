@@ -18,7 +18,7 @@ builder.Services.AddDbContext<WebApplication1Context>(options =>
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddSignalR();
+//builder.Services.AddSignalR();
 
 builder.Services.AddTransient<UsersService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -91,5 +91,7 @@ app.UseCors("Allow All");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapControllers();
 
 app.Run();

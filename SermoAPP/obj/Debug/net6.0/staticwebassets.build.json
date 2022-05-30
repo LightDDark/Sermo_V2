@@ -1,0 +1,46 @@
+{
+  "Version": 1,
+  "Hash": "sYdIc9EIfbR6h2N2yv+TX/uaxzKhu3GVCJGc8QlmcyM=",
+  "Source": "SermoAPP",
+  "BasePath": "_content/SermoAPP",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\obj\\Debug\\net6.0\\scopedcss\\bundle\\SermoAPP.styles.css",
+      "SourceId": "SermoAPP",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/SermoAPP",
+      "RelativePath": "SermoAPP.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\obj\\Debug\\net6.0\\scopedcss\\bundle\\SermoAPP.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\SermoAPP.bundle.scp.css",
+      "SourceId": "SermoAPP",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/SermoAPP",
+      "RelativePath": "SermoAPP.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\SermoAPP.bundle.scp.css"
+    }
+  ]
+}

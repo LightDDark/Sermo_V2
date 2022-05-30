@@ -1155,34 +1155,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\myavr\\.nuget\\packages\\": {}
+    "/Users/maayan/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Services\\Services.csproj",
+      "projectUniqueName": "/Users/maayan/Projects/Sermo/Services/Services.csproj",
       "projectName": "Services",
-      "projectPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Services\\Services.csproj",
-      "packagesPath": "C:\\Users\\myavr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Services\\obj\\",
+      "projectPath": "/Users/maayan/Projects/Sermo/Services/Services.csproj",
+      "packagesPath": "/Users/maayan/.nuget/packages/",
+      "outputPath": "/Users/maayan/Projects/Sermo/Services/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\myavr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/maayan/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Repository\\Repository.csproj": {
-              "projectPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Repository\\Repository.csproj"
+            "/Users/maayan/Projects/Sermo/Repository/Repository.csproj": {
+              "projectPath": "/Users/maayan/Projects/Sermo/Repository/Repository.csproj"
             }
           }
         }
@@ -1227,7 +1225,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.203/RuntimeIdentifierGraph.json"
       }
     }
   }

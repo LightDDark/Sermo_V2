@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\SermoAPP.csproj": {}
+    "/Users/maayan/Projects/Sermo/SermoAPP/SermoAPP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Domain\\Domain.csproj": {
+    "/Users/maayan/Projects/Sermo/Domain/Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Domain\\Domain.csproj",
+        "projectUniqueName": "/Users/maayan/Projects/Sermo/Domain/Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\myavr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Domain\\obj\\",
+        "projectPath": "/Users/maayan/Projects/Sermo/Domain/Domain.csproj",
+        "packagesPath": "/Users/maayan/.nuget/packages/",
+        "outputPath": "/Users/maayan/Projects/Sermo/Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\myavr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/maayan/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -70,36 +68,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.203/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Repository\\Repository.csproj": {
+    "/Users/maayan/Projects/Sermo/Repository/Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Repository\\Repository.csproj",
+        "projectUniqueName": "/Users/maayan/Projects/Sermo/Repository/Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Repository\\Repository.csproj",
-        "packagesPath": "C:\\Users\\myavr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Repository\\obj\\",
+        "projectPath": "/Users/maayan/Projects/Sermo/Repository/Repository.csproj",
+        "packagesPath": "/Users/maayan/.nuget/packages/",
+        "outputPath": "/Users/maayan/Projects/Sermo/Repository/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\myavr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/maayan/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Domain\\Domain.csproj"
+              "/Users/maayan/Projects/Sermo/Domain/Domain.csproj": {
+                "projectPath": "/Users/maayan/Projects/Sermo/Domain/Domain.csproj"
               }
             }
           }
@@ -144,36 +140,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.203/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\SermoAPP.csproj": {
+    "/Users/maayan/Projects/Sermo/SermoAPP/SermoAPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\SermoAPP.csproj",
+        "projectUniqueName": "/Users/maayan/Projects/Sermo/SermoAPP/SermoAPP.csproj",
         "projectName": "SermoAPP",
-        "projectPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\SermoAPP.csproj",
-        "packagesPath": "C:\\Users\\myavr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\SermoAPP\\obj\\",
+        "projectPath": "/Users/maayan/Projects/Sermo/SermoAPP/SermoAPP.csproj",
+        "packagesPath": "/Users/maayan/.nuget/packages/",
+        "outputPath": "/Users/maayan/Projects/Sermo/SermoAPP/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\myavr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/maayan/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Services\\Services.csproj"
+              "/Users/maayan/Projects/Sermo/Services/Services.csproj": {
+                "projectPath": "/Users/maayan/Projects/Sermo/Services/Services.csproj"
               }
             }
           }
@@ -198,9 +192,17 @@
               "target": "Package",
               "version": "[6.0.5, )"
             },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[6.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.0, )"
             }
           },
           "imports": [
@@ -221,36 +223,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.203/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Services\\Services.csproj": {
+    "/Users/maayan/Projects/Sermo/Services/Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Services\\Services.csproj",
+        "projectUniqueName": "/Users/maayan/Projects/Sermo/Services/Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\myavr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Services\\obj\\",
+        "projectPath": "/Users/maayan/Projects/Sermo/Services/Services.csproj",
+        "packagesPath": "/Users/maayan/.nuget/packages/",
+        "outputPath": "/Users/maayan/Projects/Sermo/Services/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\myavr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/maayan/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\myavr\\Desktop\\New folder (2)\\Sermo_V2\\Repository\\Repository.csproj"
+              "/Users/maayan/Projects/Sermo/Repository/Repository.csproj": {
+                "projectPath": "/Users/maayan/Projects/Sermo/Repository/Repository.csproj"
               }
             }
           }
@@ -295,7 +295,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.203/RuntimeIdentifierGraph.json"
         }
       }
     }

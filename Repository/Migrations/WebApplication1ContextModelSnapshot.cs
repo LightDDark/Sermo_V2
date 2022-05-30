@@ -130,6 +130,9 @@ namespace Repository.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("longtext");
 
+                    b.Property<int>("Stars")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Ratings");

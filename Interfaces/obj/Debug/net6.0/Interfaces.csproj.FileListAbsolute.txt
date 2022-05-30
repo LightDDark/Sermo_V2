@@ -1,0 +1,17 @@
+/Users/maayan/Projects/Sermo/Interfaces/bin/Debug/net6.0/Interfaces.deps.json
+/Users/maayan/Projects/Sermo/Interfaces/bin/Debug/net6.0/Interfaces.dll
+/Users/maayan/Projects/Sermo/Interfaces/bin/Debug/net6.0/Interfaces.pdb
+/Users/maayan/Projects/Sermo/Interfaces/bin/Debug/net6.0/Entries.dll
+/Users/maayan/Projects/Sermo/Interfaces/bin/Debug/net6.0/Repository.dll
+/Users/maayan/Projects/Sermo/Interfaces/bin/Debug/net6.0/Repository.pdb
+/Users/maayan/Projects/Sermo/Interfaces/bin/Debug/net6.0/Entries.pdb
+/Users/maayan/Projects/Sermo/Interfaces/obj/Debug/net6.0/Interfaces.csproj.AssemblyReference.cache
+/Users/maayan/Projects/Sermo/Interfaces/obj/Debug/net6.0/Interfaces.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maayan/Projects/Sermo/Interfaces/obj/Debug/net6.0/Interfaces.AssemblyInfoInputs.cache
+/Users/maayan/Projects/Sermo/Interfaces/obj/Debug/net6.0/Interfaces.AssemblyInfo.cs
+/Users/maayan/Projects/Sermo/Interfaces/obj/Debug/net6.0/Interfaces.csproj.CoreCompileInputs.cache
+/Users/maayan/Projects/Sermo/Interfaces/obj/Debug/net6.0/Interfaces.csproj.CopyComplete
+/Users/maayan/Projects/Sermo/Interfaces/obj/Debug/net6.0/Interfaces.dll
+/Users/maayan/Projects/Sermo/Interfaces/obj/Debug/net6.0/refint/Interfaces.dll
+/Users/maayan/Projects/Sermo/Interfaces/obj/Debug/net6.0/Interfaces.pdb
+/Users/maayan/Projects/Sermo/Interfaces/obj/Debug/net6.0/ref/Interfaces.dll

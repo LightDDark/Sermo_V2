@@ -1,0 +1,46 @@
+{
+  "Version": 1,
+  "Hash": "mPMPossR5Wh6stfJp3mR/cvVFcAJ6+dnvXZnFZUILNM=",
+  "Source": "SermoWeb",
+  "BasePath": "_content/SermoWeb",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [
+    {
+      "Identity": "/Users/maayan/Projects/Sermo_V2-1/SermoWeb/obj/Debug/net6.0/scopedcss/bundle/SermoWeb.styles.css",
+      "SourceId": "SermoWeb",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/maayan/Projects/Sermo_V2-1/SermoWeb/obj/Debug/net6.0/scopedcss/bundle/",
+      "BasePath": "_content/SermoWeb",
+      "RelativePath": "SermoWeb.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/maayan/Projects/Sermo_V2-1/SermoWeb/obj/Debug/net6.0/scopedcss/bundle/SermoWeb.styles.css"
+    },
+    {
+      "Identity": "/Users/maayan/Projects/Sermo_V2-1/SermoWeb/obj/Debug/net6.0/scopedcss/projectbundle/SermoWeb.bundle.scp.css",
+      "SourceId": "SermoWeb",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/maayan/Projects/Sermo_V2-1/SermoWeb/obj/Debug/net6.0/scopedcss/projectbundle/",
+      "BasePath": "_content/SermoWeb",
+      "RelativePath": "SermoWeb.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/maayan/Projects/Sermo_V2-1/SermoWeb/obj/Debug/net6.0/scopedcss/projectbundle/SermoWeb.bundle.scp.css"
+    }
+  ]
+}

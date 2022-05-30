@@ -1,5 +1,7 @@
 hi! welcome to Sermo.
 
+* before running the app you should update the database using "update-database".
+
 to run the app:
 
 1. run the "Sermo" (containing API and server)

@@ -15,6 +15,8 @@ import RecordAudio from "./RecordAudio";
 function MessageForm(props) {
   const [activeContact, setActiveContact] = props.active;
   const user = props.user;
+  const sendMsg = props.sendMsg;
+  //const [msgs, setMsgs] = props.messages;
   const [type, setType] = useState(null);
 
   // const imageM = useRef();
@@ -89,8 +91,17 @@ function MessageForm(props) {
   const sendTextMessage = function () {
     if (user) {
       const msg = textM.current.value;
-      user.sendMessage(msg, activeContact);
       textM.current.value = "";
+      // const msgsCopy = msgs.slice();
+      // msgsCopy.push({
+      //   type: "text",
+      //   content: msg,
+      //   user: user.getName(),
+      //   date: new Date(),
+      // });
+      // setMsgs(msgsCopy);
+      user.sendMessage(msg, activeContact);
+      sendMsg(activeContact.getName(), msg);
     }
   };
 

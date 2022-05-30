@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Domain;
 using Domain.Rate;
+using Domain.Hub;
+
 
 
 namespace Repository
@@ -26,7 +28,7 @@ namespace Repository
 
         public DbSet<Ratings>? Ratings { get; set; }
 
-
+        public DbSet<Connection>? Connections { get; set; }
 
     }
 }

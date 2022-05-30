@@ -519,17 +519,21 @@ namespace Services
             log = user.Logs.Find(x => x.stringId == logId);
             if (log != null)
             {
-                log = await _context.Log.Include(x => x.Messages).FirstOrDefaultAsync(l => l.stringId == log.stringId);
+                log = await _context.Log.Include(x => x.Messages).FirstOrDefaultAsync(l => l.stringId == logId);
             }
             if (log == null || log.stringId == "")
             {
-                log = new Log()
+                log = await _context.Log.Include(x => x.Messages).FirstOrDefaultAsync(l => l.stringId == logId);
+                if (log == null || log.stringId == "")
                 {
-                    stringId = logId,
-                    Messages = new List<Message>(),
-                    User = user,
-                    Contact = contact
-                };
+                    log = new Log()
+                    {
+                        stringId = logId,
+                        Messages = new List<Message>(),
+                        User = user,
+                        Contact = contact
+                    };
+                }
                 user.Logs.Add(log);
 
                 _context.Entry(user).State = EntityState.Modified;

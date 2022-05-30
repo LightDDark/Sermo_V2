@@ -46,7 +46,10 @@ function SideBar(props) {
           <SearchBar doSearch={doSearch} />
         </Col>
         <Col>
-          <ContactButton setContactList={setContactList} user={currentUser} />
+          <ContactButton
+            contactList={[contactList, setContactList]}
+            user={currentUser}
+          />
         </Col>
       </Row>
       <Row>

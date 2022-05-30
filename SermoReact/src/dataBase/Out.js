@@ -9,15 +9,10 @@ class Out {
     const response = await fetch(url, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
       headers,
       body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
-    if (response.body === null) {
-      return response.ok;
-    }
-    return response.json(); // parses JSON response into native JavaScript objects
+    return response.ok;
   }
 
   static async login(url = "", data = {}, headers = {}) {
@@ -30,8 +25,6 @@ class Out {
     const response = await fetch(url, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
       headers,
       body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
@@ -51,8 +44,6 @@ class Out {
     const response = await fetch(url, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
       headers,
     });
     if (response.body === null || !response.ok) {

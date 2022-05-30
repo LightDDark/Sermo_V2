@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Domain.Hub;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
@@ -22,5 +23,6 @@ namespace Domain
         public List<Contact> Contacts { get; set; } = new List<Contact>();
         public List<Log> Logs { get; set; } = new List<Log>();
 
+        public ICollection<Connection> Connections { get; set; } = new HashSet<Connection>();
     }
 }

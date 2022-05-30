@@ -3,6 +3,7 @@ import React from "react";
 
 function PrintLog(props) {
   const length = props.messages.length;
+  console.log(length);
   const messages = props.messages.map((msg, index) => {
     const classer =
       msg.user === props.userName ? "Container Mine" : "Container Other";
@@ -11,7 +12,6 @@ function PrintLog(props) {
         ? msg.date.getMinutes()
         : "0" + msg.date.getMinutes();
     const timer = msg.date.getHours() + ":" + mins;
-    console.log(msg.content);
     return (
       <div key={index}>
         <div className="box" key={index + length}>

@@ -9,7 +9,7 @@ function ContactButton(props) {
   const contactName = useRef(null);
   const contactNick = useRef(null);
   const contactServer = useRef(null);
-  const setContactList = props.setContactList;
+  const [contactList, setContactList] = props.contactList;
   const user = props.user;
 
   const handleClose = () => setShow(false);
@@ -24,7 +24,9 @@ function ContactButton(props) {
     if (contactToAdd) {
       setValidated(true);
       user.addContact(contactToAdd);
-      setContactList(await user.getContacts());
+      const newList = contactList.slice();
+      newList.push(contactToAdd);
+      setContactList(newList);
       setShow(false);
     } else {
       setValidated(false);

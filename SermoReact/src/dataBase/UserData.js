@@ -2,9 +2,12 @@ import User from "./User";
 import Out from "./Out";
 
 class UserData {
+  constructor(server) {
+    this.server = server;
+  }
   async getUser(userName) {
     let response = await Out.get(
-      "https://localhost:7043/api/Users/" + userName
+      "https://" + this.server + "/api/Users/" + userName
     );
     if (response !== null) {
       return new User(response.id, response.name, response.server);
@@ -13,7 +16,7 @@ class UserData {
   }
 
   async addUser(userName, password, nickName) {
-    Out.post("https://localhost:7043/api/Users", {
+    Out.post("https://" + this.server + "/api/Users", {
       id: userName,
       password: password,
       name: nickName,
@@ -22,18 +25,21 @@ class UserData {
   }
 
   async login(userName, password) {
-    let response = await Out.login("https://localhost:7043/api/Users/Login", {
-      id: userName,
-      password: password,
-    });
+    let response = await Out.login(
+      "https://" + this.server + "/api/Users/Login",
+      {
+        id: userName,
+        password: password,
+      }
+    );
     if (!response) {
       return null;
     }
-    let user = new User(userName, userName, "localhost:7043", response.result);
+    let user = new User(userName, userName, this.server, response);
     return user;
   }
 }
 
-const users = new UserData();
+const users = new UserData("localhost:7217");
 
 export default users;

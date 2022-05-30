@@ -21,16 +21,21 @@ class User {
         },
         { Authorization: "Bearer " + this.token }
       );
-      if (this.getServer() !== contact.getServer()) {
-        Out.post(
-          "https://" + contact.server + "/api/invitations",
-          {
-            id: this.getName(),
-            name: contact.getName(),
-            server: this.getServer(),
-          },
-          { Authorization: "Bearer " + this.token }
-        );
+
+      if (this.server !== contact.server) {
+        try {
+          Out.post(
+            "https://" + contact.server + "/api/invitations",
+            {
+              id: this.getName(),
+              name: contact.getName(),
+              server: this.getServer(),
+            },
+            { Authorization: "Bearer " + this.token }
+          );
+        } catch (e) {
+          console.log(e);
+        }
       }
     }
     return this;
@@ -64,7 +69,11 @@ class User {
   async getMessages(contactName) {
     let messages = [];
     let response = await Out.get(
-      "https://" + this.getServer() + "/api/" + contactName + "/messages",
+      "https://" +
+        this.getServer() +
+        "/api/contacts/" +
+        contactName +
+        "/messages",
       { Authorization: "Bearer " + this.token }
     );
     if (response === null || response === undefined || response.length === 0) {
@@ -78,12 +87,11 @@ class User {
         date: new Date(msg.created),
       });
     });
-
     return messages;
   }
 
   async sendMessage(content, contact, type = "text") {
-    await Out.post(
+    Out.post(
       "https://" +
         this.getServer() +
         "/api/contacts/" +
@@ -94,16 +102,20 @@ class User {
       },
       { Authorization: "Bearer " + this.token }
     );
-    if (contact.getServer() !== this.getServer()) {
-      await Out.post(
-        "https://" + contact.getServer() + "/api/transfer",
-        {
-          from: this.getName(),
-          to: contact.getName(),
-          content: content,
-        },
-        { Authorization: "Bearer " + this.token }
-      );
+    if (this.server !== contact.server) {
+      try {
+        Out.post(
+          "https://" + contact.getServer() + "/api/transfer",
+          {
+            from: this.getName(),
+            to: contact.getName(),
+            content: content,
+          },
+          { Authorization: "Bearer " + this.token }
+        );
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 }

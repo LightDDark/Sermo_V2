@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using Repository;
 using Services;
+using SermoAPI.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ builder.Services.AddDbContext<WebApplication1Context>(options =>
 builder.Services.AddControllers();
 
 builder.Services.AddTransient<UsersService>();
+builder.Services.AddTransient<HubsService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c => {
@@ -69,10 +72,18 @@ builder.Services.AddCors(options =>
         builder =>
         {
             builder
-            .AllowAnyOrigin()
+            .SetIsOriginAllowed(origin => true)
             .AllowAnyMethod()
+            .AllowCredentials()
             .AllowAnyHeader();
         });
+});
+
+builder.Services.AddSignalR(hubOptions =>
+{
+    hubOptions.EnableDetailedErrors = true;
+    hubOptions.KeepAliveInterval = TimeSpan.FromMinutes(20);
+    hubOptions.ClientTimeoutInterval = TimeSpan.FromMinutes(20);
 });
 
 var app = builder.Build();
@@ -85,11 +96,16 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("Allow All");
-
 app.UseHttpsRedirection();
+app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<MessageHub>("/MsgHub");
+});
 
 app.Run();

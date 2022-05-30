@@ -133,6 +133,9 @@ namespace Repository.Migrations
                     b.Property<int>("Stars")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("dateTime")
+                        .HasColumnType("datetime(6)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Ratings");

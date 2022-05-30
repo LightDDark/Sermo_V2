@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "R+CxePMEqnOpDeQwBX0nC6CfyOxgBbwAULzvZ5GVAVE=",
+  "Hash": "D8bKLIdKHwVqQ1getKpEjj4a1QA7MBeuKUulmenjtLs=",
   "Source": "SermoAPP",
   "BasePath": "_content/SermoAPP",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/maayan/Projects/Sermo/SermoAPP/obj/Debug/net6.0/scopedcss/projectbundle/SermoAPP.bundle.scp.css"
+    },
+    {
+      "Identity": "/Users/maayan/Projects/Sermo/SermoAPP/wwwroot/.DS_Store",
+      "SourceId": "SermoAPP",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/maayan/Projects/Sermo/SermoAPP/wwwroot/",
+      "BasePath": "_content/SermoAPP",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
     },
     {
       "Identity": "/Users/maayan/Projects/Sermo/SermoAPP/wwwroot/asset-manifest.json",

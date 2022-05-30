@@ -19,6 +19,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +40,7 @@
     <Content Remove="wwwroot\static\media\options_icon.d64c052d68d46c3ec985.png" />
     <Content Remove="wwwroot\static\" />
     <Content Remove="wwwroot\background.jpeg" />
+    <Content Remove="wwwroot\ratings.png" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Sermo\" />
@@ -59,7 +63,6 @@
     <None Include="wwwroot\static\media\background.fc782fb1b052034f2e3b.jpeg" />
     <None Include="wwwroot\static\media\message_icon.216de88788f8e468ff57.jpeg" />
     <None Include="wwwroot\static\media\options_icon.d64c052d68d46c3ec985.png" />
-    <None Include="wwwroot\background.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Content Condition="'$(ExcludeConfigFilesFromBuildOutput)'!='true'" Update="wwwroot\asset-manifest.json">

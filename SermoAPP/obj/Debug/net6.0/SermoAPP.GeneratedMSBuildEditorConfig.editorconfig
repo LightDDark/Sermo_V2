@@ -19,24 +19,28 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZVBhZ2UvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/maayan/Projects/Sermo/SermoAPP/Views/Ratings/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5ncy9DcmVhdGUuY3NodG1s
+[/Users/maayan/Projects/Sermo/SermoAPP/Views/Rating/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5nL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/maayan/Projects/Sermo/SermoAPP/Views/Ratings/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5ncy9EZWxldGUuY3NodG1s
+[/Users/maayan/Projects/Sermo/SermoAPP/Views/Rating/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5nL0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/maayan/Projects/Sermo/SermoAPP/Views/Ratings/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5ncy9EZXRhaWxzLmNzaHRtbA==
+[/Users/maayan/Projects/Sermo/SermoAPP/Views/Rating/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5nL0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/maayan/Projects/Sermo/SermoAPP/Views/Ratings/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5ncy9FZGl0LmNzaHRtbA==
+[/Users/maayan/Projects/Sermo/SermoAPP/Views/Rating/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5nL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/maayan/Projects/Sermo/SermoAPP/Views/Ratings/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5ncy9JbmRleC5jc2h0bWw=
+[/Users/maayan/Projects/Sermo/SermoAPP/Views/Rating/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5nL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/maayan/Projects/Sermo/SermoAPP/Views/Rating/search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmF0aW5nL3NlYXJjaC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/maayan/Projects/Sermo/SermoAPP/Views/Shared/Error.cshtml]

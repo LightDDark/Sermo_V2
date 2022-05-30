@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SermoAPP.Views.Rating
 {
-	public class indexR
+	public class searchR
 	{
 		private readonly WebApplication1Context _context;
 
 
 
-		public indexR(WebApplication1Context context)
+		public searchR(WebApplication1Context context)
 		{
 			_context = context;
 		}

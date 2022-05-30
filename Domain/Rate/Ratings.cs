@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Domain.Rate
 {
@@ -11,6 +13,7 @@ namespace Domain.Rate
 		public string? Author { get; set; }
 		public string? Content { get; set; }
 		public int Stars { get; set; }
+		public DateTime dateTime { get; set; }
 
 	}
 }

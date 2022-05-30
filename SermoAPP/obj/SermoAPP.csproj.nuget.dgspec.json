@@ -42,6 +42,10 @@
               "target": "Package",
               "version": "[6.0.5, )"
             },
+            "Microsoft.AspNetCore.Mvc.ViewFeatures": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -166,6 +170,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "/Users/maayan/Projects/Sermo/Repository/Repository.csproj": {
+                "projectPath": "/Users/maayan/Projects/Sermo/Repository/Repository.csproj"
+              },
               "/Users/maayan/Projects/Sermo/Services/Services.csproj": {
                 "projectPath": "/Users/maayan/Projects/Sermo/Services/Services.csproj"
               }

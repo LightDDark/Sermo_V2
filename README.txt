@@ -1,3 +1,5 @@
+*our last but not least partner is Moshe Schnaps, 208493064 (he used other computers)
+
 hi! welcome to Sermo.
 
 * before running the app you should update the database using "update-database".
